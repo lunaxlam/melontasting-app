@@ -25,10 +25,10 @@ model.db.session.commit()
 
 
 # Create a few fake reservations
-datetime_str = ["2022-02-14 19:00",
-                "2023-05-14 11:00",
-                "2023-11-11 18:00",
-                "2023-12-18 19:30"
+datetime_str = ["2022-03-01 11:30",
+                "2022-04-14 14:00",
+                "2022-05-20 15:30",
+                "2022-06-23 11:30"
 ]
 
 users_id = []
@@ -51,4 +51,30 @@ for user_id in users_id:
         j += 1
 
 model.db.session.add_all(new_reservations)
+model.db.session.commit()
+
+
+# Create open reservation slots
+slots_str = ["11:00",
+            "11:30",
+            "13:00",
+            "13:30",
+            "14:00",
+            "14:30",
+            "15:00",
+            ]
+
+open_slots = []
+
+for i in range(1, 32):
+    for slot in slots_str:
+        if i < 10:
+            slot_str = f"2022-08-0{i} {slot}"
+        else:
+            slot_str = f"2022-08-{i} {slot}"
+        
+        new_slot = model.OpenSlots.create_slot(slot_str)
+        open_slots.append(new_slot)
+
+model.db.session.add_all(open_slots)
 model.db.session.commit()

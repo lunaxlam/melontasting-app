@@ -6,12 +6,11 @@ function Main() {
     .then((res) => res.json())
     .then((data) => {
       if (data != null) {
-
+        
         document.querySelector('#main-content').innerHTML = 
         `<div class='welcome-msg'>
           <p>Welcome back to Il Dolce Melone, ${data}.</p>
         </div>`
-        
       }
 
     })

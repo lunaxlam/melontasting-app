@@ -42,6 +42,7 @@ footer a {
 
 ul {
 	list-style-type: none;
+	padding: 0;
 }
 
 
@@ -55,8 +56,16 @@ button {
 /******************************************
 /* FORM STYLES
 /*******************************************/
+#alert {
+	color: red;
+}
+
 #new-reservation {
-	padding: 10%;
+	padding: 15%;
+}
+
+.coming-soon {
+	color: lightslategray;
 }
 
 /******************************************
@@ -112,3 +121,11 @@ a:hover.nav-link {
 	font-size: 24px;
 }
 
+/* Results Styling */
+#slots, #reservations {
+	text-align: right;
+}
+
+#slots-container, #reservations-container {
+	padding-right: 30%;
+}

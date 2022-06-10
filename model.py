@@ -68,6 +68,8 @@ class Reservation(db.Model):
 
         if isinstance(datetime_str, str):
             reservation_date = datetime.strptime(datetime_str, "%Y-%m-%d %H:%M")
+        else:
+            reservation_date = datetime_str
 
         reservation = cls(user_id=user_id, reservation_date=reservation_date)
 
@@ -89,6 +91,55 @@ class Reservation(db.Model):
         reservation = cls.query.filter_by(reservation_id=reservation_id).first()
 
         db.session.delete(reservation)
+        db.session.commit()
+
+
+class OpenSlots(db.Model):
+    """An open reservation slot"""
+
+    __tablename__ = "slots"
+
+    slot_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    slot_datetime = db.Column(db.DateTime)
+
+    def __repr__(self):
+        """A string representation of an open slot"""
+
+        return f"<OpenSlot slot={self.slot_id} slot_datetime={self.slot_datetime}>"
+    
+    @classmethod
+    def create_slot(cls, slot_datetime_str):
+        """Create and return a new open slot"""
+
+        if isinstance(slot_datetime_str, str):
+            slot_datetime = datetime.strptime(slot_datetime_str, "%Y-%m-%d %H:%M")
+
+        slot = cls(slot_datetime=slot_datetime)
+
+        db.session.add(slot)
+        db.session.commit()
+
+        return slot
+    
+    @classmethod
+    def get_open_slots(cls):
+        """Return all open slots"""
+
+        return cls.query
+    
+    @classmethod
+    def get_slot_by_id(cls, slot_id):
+        """Return a slot by id"""
+
+        return cls.query.filter(cls.slot_id == slot_id).first()
+    
+    @classmethod
+    def delete_slot(cls, slot_id):
+        """Delete slot from open slot table"""
+
+        slot = cls.query.filter_by(slot_id=slot_id).first()
+
+        db.session.delete(slot)
         db.session.commit()
 
 

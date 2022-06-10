@@ -3,26 +3,73 @@ function Nav() {
 
     const showForm = () => {
         document.querySelector('#main-content').innerHTML = 
-        `<form id='new-reservation' class='row g-3' action='/search' method='POST'>
-            <h2 class='text-center'>Search for New Reservation</h2><br />            
-            <div class="col-md-12">
-                <label for="date" class="form-label lb-lg">Select Date:</label><br />
-                <input type="date" name="date" id="date" required />
+        `<form id='new-reservation' class='row g-3' method='POST'>
+            <h2 class='text-center'>Search for New Reservation</h2>
+            <h5 id='alert'>Now accepting reservations for August 2022!</h5> 
+            <h6>Daily melon tastings, 11am to 4pm</h6>     
+            <div class='col-md-12'>
+                <label for='date-field' class='form-label lb-lg'>Select Date:</label><br />
+                <input type='date' name='date' id='date' value='2022-08-01' required />
             </div>
-            <h6>Optional: Refine search by selecting a start and end time</h6>
-            <div class="col">
-                <label for="start-time" class="form-label lb-lg">Start</label>
-                <input type="time" class="form-control" name="start" id="start" />
+            <h6 class='coming-soon'>COMING SOON: Option to refine search by selecting a start and end time.</h6>
+            <div class='col'>
+                <label for='start-field' class='form-label lb-lg coming-soon'>Start</label>
+                <input type='time' class='form-control' name='start' id='start' min='11:00' max='16:00' disabled/>
             </div>
-            <div class="col">
-                <label for="end-time" class="form-label lb-lg">End</label>
-                <input type="time" class="form-control" name="end" id="end" />
+            <div class='col'>
+                <label for='end-field' class='form-label lb-lg coming-soon'>End</label>
+                <input type='time' class='form-control' name='end' id='end' disabled/>
             </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-success">Search</button>
+            <div class='col-12'>
+                <button type='submit' class='btn btn-success'>Search</button>
             </div>
-        </form>
-        `
+        </form>`
+
+        document.querySelector('#new-reservation').addEventListener('submit', (evt) => {
+            evt.preventDefault();
+
+            const formInputs = {
+                date: document.querySelector('#date').value,
+                start: document.querySelector('#start').value,
+                end: document.querySelector('#end').value,
+            };
+
+            fetch('/api/slots', {
+                method: 'POST',
+                body: JSON.stringify(formInputs),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then((res) => res.json())
+                .then((resJSON) => {
+
+                    const slots = resJSON
+
+                    if (Object.keys(slots).length === 0) {
+                        document.querySelector('#main-content').innerHTML = 
+                        `<h2 class='text-center'>Available Slots:</h2>
+                        <p>No tastings available. Please search another date.</p>`
+                    } else {
+
+                        document.querySelector('#main-content').innerHTML = 
+                        `<h2>Available Slots:</h2>
+                        <div id='slots-container'>
+                            <ul id='slots'>
+                            </ul>
+                        </div>`
+
+                        for (const i in slots) {
+
+                            document.querySelector('#slots').insertAdjacentHTML(
+                                'beforeend',
+                                `<li>${slots[i]['date']} at ${slots[i]['time']} <a href='/signup/${slots[i]['slot_id']}'><button class='btn btn-success btn-sm'>Sign-Up</button></a>`
+                            )
+
+                        }
+                    }
+                })
+        })
     }
 
     const showReservations = () => {
@@ -35,15 +82,17 @@ function Nav() {
                 
                 document.querySelector('#main-content').innerHTML = 
                 `<h2 class='text-center'>My Reservations</h2>
-                <ul id='reservations'>
-                </ul>`
+                <div id='reservations-container'>
+                    <ul id='reservations'>
+                    </ul>
+                </div>`
 
                 for (const i in reservations) {
 
                     document.querySelector('#reservations').insertAdjacentHTML(
                         'beforeend',
                         `<div>
-                            <li>${reservations[i]["date"]} at ${reservations[i]["time"]}</li>
+                            <li>${reservations[i]['date']} at ${reservations[i]['time']}<a href='/delete/${reservations[i]['reservation_id']}'><button class='btn btn-danger btn-sm'>Delete</button></a></li>
                         </div>`
                     )
 
