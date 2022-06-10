@@ -66,7 +66,8 @@ class Reservation(db.Model):
     def create_reservation(cls, user_id, datetime_str):
         """Create and return a new reservation"""
 
-        reservation_date = datetime.strptime(datetime_str, "%m/%d/%Y %I:%M %p")
+        if isinstance(datetime_str, str):
+            reservation_date = datetime.strptime(datetime_str, "%Y-%m-%d %H:%M")
 
         reservation = cls(user_id=user_id, reservation_date=reservation_date)
 

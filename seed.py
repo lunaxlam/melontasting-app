@@ -25,10 +25,10 @@ model.db.session.commit()
 
 
 # Create a few fake reservations
-datetime_str = ["02/14/2023 05:30 PM",
-                "05/14/2023 11:00 AM",
-                "11/11/2023 06:00 PM",
-                "12/18/2023 07:30 PM"
+datetime_str = ["2022-02-14 19:00",
+                "2023-05-14 11:00",
+                "2023-11-11 18:00",
+                "2023-12-18 19:30"
 ]
 
 users_id = []

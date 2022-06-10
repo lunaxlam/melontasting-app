@@ -3,50 +3,112 @@
 /*******************************************/
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 /******************************************
 /* BASE STYLES
 /*******************************************/
+.container {
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+	width: 1200px;
+}
+
+a {
+	color: green;
+}
+
+a:hover {
+	color: black;
+}
 
 body {
     font-family: 'Lato', sans-serif;
 	background-color: whitesmoke;
-	font-size: 18px;
+	font-size: 20px;
 	color: black;
 }
+
+footer {
+	padding: 10px;
+	font-size: 18px;
+}
+
+footer a {
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
 
 /******************************************
 /* BUTTON STYLES
 /*******************************************/
-
+button {
+	margin-left: 10px;
+}
 
 /******************************************
 /* FORM STYLES
 /*******************************************/
-
+#new-reservation {
+	padding: 10%;
+}
 
 /******************************************
-/* LAYOUT STYLES
+/* IMG STYLES
 /*******************************************/
-
+#img-tasting {
+	height: 600px;
+	width: 400px;
+}
 
 /******************************************
 /* LINK STYLES
 /*******************************************/
 
-
 /******************************************
-/* MAPS STYLES
+/* MAIN STYLES
 /*******************************************/
+#main {
+	padding: 20px 0 20px 40px;
+}
 
+#main-heading {
+	font-family: 'Dancing Script', cursive;
+	font-size: 50px;
+	padding-bottom: 10px;
+}
 
 /******************************************
 /* NAV BAR STYLES
 /*******************************************/
+.nav-link {
+	color: green;
+}
 
-
+a:hover.nav-link {
+	color: black;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
+
+/* Flash Msg Styling */
+
+#flash-container {
+	background-color: lightgoldenrodyellow;
+	border-radius: 0;
+}
+
+/* Welcome */
+
+.welcome-msg {
+	font-size: 24px;
+}
 
