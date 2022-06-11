@@ -143,7 +143,7 @@ class OpenSlots(db.Model):
         db.session.commit()
 
 
-def connect_to_db(flask_app, db_uri="postgresql:///melontasting", echo=True):
+def connect_to_db(flask_app, db_uri="postgres://sogrnwmdkxrrjh:e6a06655cc03773d8a6e5cd952af5bab1030a3e845e46a2758ed11592bb3ba08@ec2-107-22-238-112.compute-1.amazonaws.com:5432/dcjhbnd6ettst1", echo=True):
     """Connect Flask app to database."""
 
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri    
