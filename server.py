@@ -6,8 +6,6 @@ import os
 
 from model import connect_to_db, User, OpenSlots, Reservation
 
-from datetime import datetime
-
 app = Flask(__name__)
 
 app.jinja_env.undefined = StrictUndefined
