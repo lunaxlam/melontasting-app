@@ -1,11 +1,17 @@
-# **Il Dolce Melone - Melon Tasting Reservation Scheduler**
-A single-page React application that allows users to search for melon tasting reservations. Saved reservations are persistently stored in PostgreSQL. 
+# **Melon Tasting Reservation Scheduler**
+A single-page React application that allows users to conveniently search for melon tasting reservations. Saved reservations are persistently stored in PostgreSQL. 
 
 ## **Table of Contents**)
-* [Tech Stack]() 
-* [Features]()
-* [Installation]()
-* [Version 2.0]()
+* [Design](https://github.com/lunaxlam/melontasting-app#design) 
+* [Tech Stack](https://github.com/lunaxlam/melontasting-app#tech-stack) 
+* [Features](https://github.com/lunaxlam/melontasting-app#features)
+* [Installation](https://github.com/lunaxlam/melontasting-app#installation)
+* [Version 2.0](https://github.com/lunaxlam/melontasting-app#version-20)
+
+## **Design**
+I selected a single page application design for this project to deliver a seamless experience for the end user. Rather than needing to refresh the entire page any time that data is transmitted, a single page application allows for targeted portions of a webpage to update as asynchronous requests are made.
+
+I used PostgreSQL to structure relational data about users, reservations, and available reservation slots.
 
 ## **Tech Stack**
 Backend: Flask, Python, PostgreSQL, SQLAlchemy ORM<br />
@@ -84,3 +90,4 @@ localhost:5000/
 * Enable users to search for new reservations with optional start and end time range filter
 * Enable new user sign-up
 * Enable password requirement for login
+* Unit tests
