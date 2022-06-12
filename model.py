@@ -151,7 +151,10 @@ def connect_to_db(flask_app, db_uri="postgres://sogrnwmdkxrrjh:e6a06655cc03773d8
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False                      
 
     db.app = flask_app
-    db.init_app(flask_app)                                                      
+    db.init_app(flask_app)
+
+    with flask_app.app.context():
+        db.create_all()                                                   
 
     print("Connected to the db!")
 
