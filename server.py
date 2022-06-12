@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 app.jinja_env.undefined = StrictUndefined
 
-app.secret_key = "e45dtryufguvhjbk98uoyihkjbxfcjgvkjhb54wetr"
+app.secret_key = "e45dtryufguvhjbk98uoyihkjbxfcjgvkjhb5"
 
 
 ### Standard Routes ###
