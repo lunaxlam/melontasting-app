@@ -2,7 +2,6 @@
 
 from flask import Flask, render_template, request, redirect, session, flash, jsonify
 from jinja2 import StrictUndefined
-import os
 
 from model import connect_to_db, User, OpenSlots, Reservation
 
@@ -10,7 +9,7 @@ app = Flask(__name__)
 
 app.jinja_env.undefined = StrictUndefined
 
-app.secret_key = os.environ['FLASK_SECRET_KEY']
+app.secret_key = "e45dtryufguvhjbk98uoyihkjbxfcjgvkjhb54wetr"
 
 
 ### Standard Routes ###
