@@ -1,7 +1,6 @@
 # **Melon Tasting Reservation Scheduler**
 Now deployed on Heroku: https://tasting-scheduler.herokuapp.com/
-
-##### Tip: Use "harperlee" as a test-user for the deployed app!<br/><br/>
+##### Tip: Use "harperlee" or "rupikaur" as a test-user<br/>
 
 A single-page React application that allows users to conveniently search for melon tasting reservations. Saved reservations are persistently stored in PostgreSQL. 
 
