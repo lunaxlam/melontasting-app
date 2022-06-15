@@ -18,6 +18,8 @@ app.secret_key = "e45dtryufguvhjbk98uoyihkjbxfcjgvkjhb5"
 def show_homepage():
     """Return homepage"""
 
+    print(__name__)
+
     return render_template("index.html")
 
 @app.route("/login", methods=["POST"])
