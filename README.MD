@@ -1,10 +1,8 @@
 # **Melon Tasting Reservation Scheduler**
 Now deployed on Heroku: https://tasting-scheduler.herokuapp.com/
-##### Tip: Use "harperlee" or "rupikaur" as a test-user<br/>
+#### Tip: Use "harperlee" as a test-user.<br/>
 
-A single-page React application that allows users to conveniently search for melon tasting reservations. Saved reservations are persistently stored in PostgreSQL. 
-
-## **Table of Contents**)
+## **Table of Contents**
 * [Design](https://github.com/lunaxlam/melontasting-app#design) 
 * [Tech Stack](https://github.com/lunaxlam/melontasting-app#tech-stack) 
 * [Features](https://github.com/lunaxlam/melontasting-app#features)
@@ -12,7 +10,9 @@ A single-page React application that allows users to conveniently search for mel
 * [Version 2.0](https://github.com/lunaxlam/melontasting-app#version-20)
 
 ## **Design**
-I selected a single page application design for this project to deliver a seamless experience for the end user. Rather than needing to refresh the entire page any time that data is transmitted, a single page application allows for targeted portions of a webpage to update as asynchronous requests are made.
+Melon Tasting Reservation Scheduler is a single-page React application that allows users to conveniently search for melon tasting reservations. Saved reservations are persistently stored in PostgreSQL. 
+
+I selected a single page design for this project to deliver a seamless experience for the end user. Rather than needing to refresh the entire page any time that data is transmitted, a single page application allows for targeted portions of a webpage to update as asynchronous requests are made.
 
 I used PostgreSQL to structure relational data about users, reservations, and available reservation slots.
 
