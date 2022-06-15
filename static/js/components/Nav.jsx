@@ -127,6 +127,9 @@ function Nav() {
         <div className='container'>
             <ul className='nav justify-content-end'>
                 <li className='nav-item'>
+                    <a className='nav-link' href='/'>Home</a>
+                </li>
+                <li className='nav-item'>
                     <a className='nav-link' href='#' onClick={showForm}>New Reservation</a>
                 </li>
                 <li className='nav-item'>
