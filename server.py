@@ -175,7 +175,7 @@ def search_reservations():
 
 
 
-if __name__ == "__main__":
+if __name__ == "server":
 
     connect_to_db(app)
 
